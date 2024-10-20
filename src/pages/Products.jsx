@@ -34,7 +34,7 @@ function Products() {
     let finalProducts = searchProducts(products, query.search);
     // console.log(finalProducts);
     finalProducts = filterProducts(finalProducts, query.category);
-    console.log(finalProducts);
+    // console.log(finalProducts);
     setDisplayed(finalProducts);
   }, [query]);
 
