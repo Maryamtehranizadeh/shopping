@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { createQueryObject } from "../helpers/helper.js";
 import { FaListUl } from "react-icons/fa";
 import styles from "./Sidebar.module.css";
@@ -9,7 +9,7 @@ function Sidebar({ setQuery, query }) {
     const tagName = e.target.tagName;
     if (tagName !== "LI") return;
     const category = e.target.innerText.toLowerCase();
-    console.log(category);
+    // console.log(category);
     setQuery((query) => createQueryObject(query, { category }));
   };
   return (
