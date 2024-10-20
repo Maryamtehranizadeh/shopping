@@ -6,7 +6,12 @@ import Card from "../components/Card";
 import Loader from "../components/Loader";
 import { ImSearch } from "react-icons/im";
 import { FaListUl } from "react-icons/fa";
-import { searchProducts, filterProducts } from "../helpers/helper.js";
+import {
+  searchProducts,
+  filterProducts,
+  getInitialQuery,
+} from "../helpers/helper.js";
+
 import { useSearchParams } from "react-router-dom";
 import { createQueryObject } from "../helpers/helper.js";
 
@@ -17,12 +22,14 @@ function Products() {
   const [query, setQuery] = useState({});
   const [searchparams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    console.log(products);
+    // console.log(products);
     setDisplayed(products);
+    setQuery(getInitialQuery(searchparams));
   }, [products]);
   useEffect(() => {
-    console.log(query);
+    // console.log(query);
     setSearchParams(query);
+    setSearch(query.search || "");
     let finalProducts = searchProducts(products, query.search);
     // console.log(finalProducts);
     finalProducts = filterProducts(finalProducts, query.category);
