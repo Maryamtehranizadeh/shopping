@@ -15,7 +15,7 @@ function BasketSidebar({ state, clickHandler }) {
       <div>
         <FaHashtag />
         <p>Quantity:</p>
-        <span>{state.Quantity}</span>
+        <span>{state.itemsCounter}</span>
       </div>
       <div>
         <BsPatchCheck />
